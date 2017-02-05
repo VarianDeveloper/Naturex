@@ -14,7 +14,7 @@ eventsApp.controller('EditEventController', function EditEventController($scope)
     };
 
     $scope.cancelEvent = function (event) {
-        window.location = '../app/EventDetails.html';
+        window.location = 'EventDetails.html';
     };
 
 

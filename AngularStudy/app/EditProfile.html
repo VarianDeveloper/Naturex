@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="eventsApp">
+<head>
+    <title ng-controller="EditProfileController">{{title}}</title>
+    <meta charset="utf-8" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/EditProfileController.js"></script>
+    <script src="services/ProfileDefaultName.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li><a href="EventDetails.html">Events</a></li>
+                </ul>
+                <ul class="nav">
+                    <li><a href="NewEvent.html">New Event</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+            input.ng-invalid.ng-dirty {
+                background-color: pink;
+            }
+        </style>
+        <div ng-controller="EditProfileController" style="padding-left:20px;padding-right:20px">
+            <div class="container">
+                <form name="profileForm">
+                    <fieldset>
+                        <label for="userName">User Name:</label>
+                        <input required ng-model="user.name" id="userName" type="text" />
+                        <label for="userPwd">Password:</label>
+                        <input ng-model="user.pwd" id="userPwd" type="password" required placeholder="Password"/>
+                    </fieldset>
+
+                    <button type="submit" ng-disabled="profileForm.$invalid" ng-click="saveProfile(user, profileForm)" class="btn btn-primary">Save Profile</button>
+                    <button type="button" ng-click="cancelProfile(user)" class="btn btn-default">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
